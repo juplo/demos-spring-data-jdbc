@@ -1,0 +1,1 @@
+CREATE TABLE users (id BIGINT PRIMARY KEY AUTO_INCREMENT, username VARCHAR(255), created TIMESTAMP, logged_in BIT);
