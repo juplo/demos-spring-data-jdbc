@@ -2,13 +2,19 @@ package de.juplo.boot.data.jdbc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponents;
 
+import java.time.Clock;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+
+import static de.juplo.boot.data.jdbc.UserStatus.CREATED;
+import static de.juplo.boot.data.jdbc.UserStatus.DELETED;
 
 @RestController
 @Transactional
@@ -19,10 +25,18 @@ public class UserController {
 
 
     private final UserRepository repository;
+    private final Clock clock;
+    private final ApplicationEventPublisher publisher;
 
 
-    public UserController(UserRepository repository) {
+    public UserController(
+            UserRepository repository,
+            Clock clock,
+            ApplicationEventPublisher publisher)
+    {
         this.repository = repository;
+        this.clock = clock;
+        this.publisher = publisher;
     }
 
 
@@ -33,6 +47,12 @@ public class UserController {
         String sanitizedUsername = UserController.sanitize(username);
         User user = new User(sanitizedUsername, LocalDateTime.now(), false);
         repository.save(user);
+        publisher.publishEvent(
+            new UserEvent(
+                this,
+                sanitizedUsername,
+                CREATED,
+                ZonedDateTime.now(clock)));
         UriComponents uri =
             builder
                 .fromCurrentRequest()
@@ -59,6 +79,12 @@ public class UserController {
             return ResponseEntity.notFound().build();
 
         repository.delete(user);
+        publisher.publishEvent(
+            new UserEvent(
+                this,
+                user.getUsername(),
+                DELETED,
+                ZonedDateTime.now(clock)));
 
         return ResponseEntity.ok(user);
     }
