@@ -5,3 +5,19 @@ services:
     image: jdbc:latest
     ports:
       - 8080:8080
+    environment:
+      spring.profiles.active: prod
+
+  postgres:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: outbox
+      POSTGRES_PASSWORD: outbox
+      POSTGRES_DB: outbox
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+volumes:
+  pgdata:

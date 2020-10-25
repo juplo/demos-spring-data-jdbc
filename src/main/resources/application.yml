@@ -3,3 +3,18 @@ management:
     web:
       exposure:
         include: "*"
+
+spring:
+  flyway:
+    locations: classpath:db/migration/h2
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:postgresql://postgres:5432/outbox
+    username: outbox
+    password: outbox
+  flyway:
+    locations: classpath:db/migration/postgres
