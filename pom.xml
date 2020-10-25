@@ -60,6 +60,27 @@
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-maven-plugin</artifactId>
        </plugin>
+       <plugin>
+         <groupId>io.fabric8</groupId>
+         <artifactId>docker-maven-plugin</artifactId>
+         <version>0.33.0</version>
+         <configuration>
+           <images>
+             <image>
+               <name>%a:%l</name>
+             </image>
+           </images>
+         </configuration>
+         <executions>
+           <execution>
+              <id>build</id>
+              <phase>package</phase>
+              <goals>
+                <goal>build</goal>
+              </goals>
+           </execution>
+         </executions>
+       </plugin>
      </plugins>
    </build>
 
