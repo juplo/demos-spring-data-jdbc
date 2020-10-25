@@ -9,7 +9,13 @@ import org.springframework.context.annotation.Bean;
 import java.time.Clock;
 
 
-@SpringBootApplication
+import java.time.Clock;
+
+
+@SpringBootApplication(scanBasePackages = {
+  "de.juplo.boot.data.jdbc",
+  "de.juplo.kafka.outbox"
+  })
 public class Application {
 
     private final static Logger LOG = LoggerFactory.getLogger(Application.class);

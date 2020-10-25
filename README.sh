@@ -45,4 +45,5 @@ do
   sleep 1
 done;
 
+docker-compose exec postgres psql -Uoutbox -c'SELECT * FROM outbox;' -Ppager=0  outbox
 docker-compose stop
