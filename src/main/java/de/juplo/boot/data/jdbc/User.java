@@ -25,4 +25,10 @@ public class User {
         this.created = created;
         this.loggedIn = loggedIn;
     }
+
+
+    @Override
+    public String toString() {
+        return username;
+    }
 }
