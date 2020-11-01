@@ -15,7 +15,8 @@
    <description>Simple web-app example for spring-boot-data-jdbc</description>
 
    <properties>
-     <java.version>1.8</java.version>
+     <java.version>11</java.version>
+     <outbox-postage.version>polling-outbox-2-SNAPSHOT</outbox-postage.version>
    </properties>
 
    <dependencies>
@@ -34,6 +35,11 @@
      <dependency>
        <groupId>org.springframework.boot</groupId>
        <artifactId>spring-boot-starter-json</artifactId>
+     </dependency>
+     <dependency>
+       <groupId>de.juplo.kafka.outbox</groupId>
+       <artifactId>outbox-postage</artifactId>
+       <version>${outbox-postage.version}</version>
      </dependency>
      <dependency>
        <groupId>org.projectlombok</groupId>
