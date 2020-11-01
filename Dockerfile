@@ -1,5 +1,5 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:11-jre
 VOLUME /tmp
 COPY target/*.jar /opt/app.jar
-ENTRYPOINT [ "/usr/bin/java", "-jar", "/opt/app.jar" ]
+ENTRYPOINT [ "java", "-jar", "/opt/app.jar" ]
 CMD []

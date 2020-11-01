@@ -1,6 +1,6 @@
 package de.juplo.boot.data.jdbc;
 
-import de.juplo.kafka.outbox.OutboxEvent;
+import de.juplo.kafka.outbox.postage.OutboxEvent;
 
 import java.time.ZonedDateTime;
 
