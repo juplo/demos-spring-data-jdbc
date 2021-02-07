@@ -2,11 +2,13 @@ version: "3"
 
 services:
   jdbc:
-    image: jdbc:latest
+    image: juplo/data-jdbc:latest
     ports:
       - 8080:8080
     environment:
       spring.profiles.active: prod
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:13

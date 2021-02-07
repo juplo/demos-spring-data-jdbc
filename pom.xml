@@ -9,9 +9,9 @@
      <relativePath/> <!-- lookup parent from repository -->
    </parent>
    <groupId>de.juplo.boot.data</groupId>
-   <artifactId>jdbc</artifactId>
+   <artifactId>data-jdbc</artifactId>
    <version>0.0.1-SNAPSHOT</version>
-   <name>data-jdbc</name>
+   <name>Data JDBC</name>
    <description>Simple web-app example for spring-boot-data-jdbc</description>
 
    <properties>
@@ -71,7 +71,7 @@
          <configuration>
            <images>
              <image>
-               <name>%a:%l</name>
+               <name>juplo/%a:latest</name>
              </image>
            </images>
          </configuration>
