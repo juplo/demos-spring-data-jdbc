@@ -10,7 +10,7 @@
    </parent>
    <groupId>de.juplo.boot.data</groupId>
    <artifactId>data-jdbc</artifactId>
-   <version>polling-outbox-1</version>
+   <version>polling-outbox-2-SNAPSHOT</version>
    <name>Data JDBC</name>
    <description>Simple web-app example for spring-boot-data-jdbc</description>
 
