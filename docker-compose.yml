@@ -2,7 +2,7 @@ version: "3"
 
 services:
   jdbc:
-    image: juplo/data-jdbc:latest
+    image: juplo/data-jdbc:polling-outbox-1
     ports:
       - 8080:8080
     environment:

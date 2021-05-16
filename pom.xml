@@ -10,7 +10,7 @@
    </parent>
    <groupId>de.juplo.boot.data</groupId>
    <artifactId>data-jdbc</artifactId>
-   <version>0.0.1-SNAPSHOT</version>
+   <version>polling-outbox-1</version>
    <name>Data JDBC</name>
    <description>Simple web-app example for spring-boot-data-jdbc</description>
 
@@ -71,7 +71,7 @@
          <configuration>
            <images>
              <image>
-               <name>juplo/%a:latest</name>
+               <name>juplo/%a:%v</name>
              </image>
            </images>
          </configuration>
