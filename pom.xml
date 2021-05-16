@@ -10,13 +10,13 @@
    </parent>
    <groupId>de.juplo.boot.data</groupId>
    <artifactId>data-jdbc</artifactId>
-   <version>polling-outbox-2-SNAPSHOT</version>
+   <version>polling-outbox-2</version>
    <name>Data JDBC</name>
    <description>Simple web-app example for spring-boot-data-jdbc</description>
 
    <properties>
      <java.version>11</java.version>
-     <outbox-postage.version>polling-outbox-2-SNAPSHOT</outbox-postage.version>
+     <outbox-postage.version>polling-outbox-2</outbox-postage.version>
    </properties>
 
    <dependencies>
